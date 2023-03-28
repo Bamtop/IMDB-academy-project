@@ -1,43 +1,28 @@
-<template>
-<div class="aside">
-  <h2 class="filter">Filtro 1</h2>
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ul>
-  <br>
-  <h2 class="filter">Filtro 2</h2>
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ul>
-  <br>
-  <h2 class="filter">Filtro 3</h2>
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ul>
-
-</div>
+<template slot="aside">
+  <div class="aside">
+    <SelectFilter/>
+    <RangeFilter :min="1999" :max="2023"/>
+  </div>
 </template>
 
-<script>
-export default {
-  name: "Aside"
-}
+<script lang="ts">
+import {defineComponent} from "vue";
+import SelectFilter from "@/components/SelectFilter.vue";
+import RangeFilter from "@/components/RangeFilter.vue";
+export default defineComponent({
+      components: {RangeFilter, SelectFilter},
+
+    })
 </script>
 
 <style scoped>
 .aside{
+  margin-right: 5rem;
+  display: flex;
+  flex-direction: column;
   background: rgba(0, 210, 255, 0.2);
-  border-radius: 30px;
-  padding: 3rem;
+  border-radius: 20px;
+  height: 100%;
 }
-.filter{
-  border-bottom: #2c3e50 1px dashed;
-  text-align: center;
-}
+
 </style>

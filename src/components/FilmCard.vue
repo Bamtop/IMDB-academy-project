@@ -1,4 +1,4 @@
-<template>
+<template slot="cards">
 <div   class="card">
   <div class="card__image">
     <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="film image">
@@ -16,6 +16,23 @@
       <h4>4 ⭐</h4>
     </div>
 </div>
+  <div   class="card">
+    <div class="card__image">
+      <img src="https://image.tmdb.org/t/p/w500/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg" alt="film image">
+    </div>
+    <div class="card__name">
+      <h3>Movie name</h3>
+    </div>
+    <div class="card__description">
+      <h4>In this film you can see a SpiderMan help others because he is a good boy</h4>
+    </div>
+    <div class="card__genre">
+      <h4>ACTION</h4>
+    </div>
+    <div class="card__score">
+      <h4>4 ⭐</h4>
+    </div>
+  </div>
   <div   class="card">
     <div class="card__image">
       <img src="https://image.tmdb.org/t/p/w500/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg" alt="film image">

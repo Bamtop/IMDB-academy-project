@@ -7,7 +7,12 @@
       <input id="search" type="text" required="" v-on:input="searchInput" v-on:blur="stopSpin" >
        <label class="search-label">
         <span style="transition-delay:0ms">S</span><span style="transition-delay:50ms">e</span><span style="transition-delay:100ms">a</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">c</span><span style="transition-delay:250ms">h</span><span style="transition-delay:300ms">.</span><span style="transition-delay:350ms">.</span><span style="transition-delay:400ms">.</span>
-      </label>
+       </label>
+    </div>
+    <div class="filter_button">
+      <a class="btn btn-default" href="#" v-on:click="setFilter">
+        <i class="fa fa-filter" title="Filter"></i>
+      </a>
     </div>
   </div>
 
@@ -18,18 +23,31 @@
 import {defineComponent} from "vue";
 
 export default defineComponent({
+  props: {
+    openFilter:{
+      type: Function,
+      required: true
+    }
+  },
   name: "SearchInput.vue",
 
-  methods:{
-    searchInput(event:Event){
-      this.$store.commit('setQuery',(event.target as HTMLInputElement).value);
+
+
+  methods: {
+    searchInput(event: Event) {
+      this.$store.commit('setQuery', (event.target as HTMLInputElement).value);
       this.setSpin();
     },
-    setSpin(){
+    setSpin() {
       (this.$refs.icon as HTMLImageElement).classList.add("spin");
     },
-    stopSpin(){
+    stopSpin() {
       (this.$refs.icon as HTMLImageElement).classList.remove("spin");
+    },
+    setFilter() {
+      let value = !this.$store.state.isOpenFilter;
+      this.$store.commit('setFilter', value);
+      this.openFilter();
     }
   }
 });
@@ -37,6 +55,8 @@ export default defineComponent({
 
 <style>
 .search_container{
+  max-width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,6 +104,17 @@ export default defineComponent({
 .icon {
   width: 100px;
   height: 100px;
+}
+.filter_button{
+  font-size: 30px;
+  position: relative;
+  bottom: 55px;
+  left: 120px;
+
+
+}
+.fa-filter{
+  color: #2580ef;
 }
 .spin {
   animation-name: spin;

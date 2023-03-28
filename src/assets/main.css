@@ -1,43 +1,5 @@
 @import './base.css';
 
-#app {
-  max-width: 100%;
-  margin: 1rem;
-  padding: 1rem;
-  font-weight: normal;
-}
 
-  #app {
-    display: grid;
-    grid-template-columns: auto 15rem;
-    grid-template-rows: auto;
-    grid-template-areas:
-      'header header'
-      'search search'
-      'main aside'
-      'footer footer';
-  }
-  .header {
-    grid-area: header;
-    background: skyblue;
 
-  }
-  .search {
-    grid-area: search;
-
-  }
-  .main {
-    grid-area: main;
-    margin:0;
-
-  }
-  .aside {
-    grid-area: aside;
-
-  }
-
-  .footer {
-    grid-area: footer;
-    background-color: rgb(213, 24, 220);
-  }
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header">
     <img class="header_logo" src="../assets/images/header_logo.jpg" alt="logo">
   </div>
 </template>
@@ -12,6 +12,10 @@ export default {
 </script>
 
 <style scoped>
+.header{
+  max-width: 100%;
+}
+
 .header_logo{
   width: 150px;
   height: 100px;
