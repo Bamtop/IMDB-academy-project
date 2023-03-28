@@ -21,6 +21,9 @@
 
   </Grid>
   </main>
+    <div class="carrousel">
+      <CustomCarrousel></CustomCarrousel>
+    </div>
   <footer class="footer">
   <Footer></Footer>
   </footer>
@@ -36,9 +39,10 @@ import Grid from "@/components/Grid.vue";
 import Aside from "@/components/Aside.vue";
 import Footer from "@/components/Footer.vue";
 import SelectFilter from "@/components/SelectFilter.vue";
+import CustomCarrousel from "@/components/CustomCarrousel.vue";
 
 export default defineComponent({
-  components: {SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
+  components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
   methods:{
     changeFilter(){
       let aside:HTMLElement|null  = document.getElementById("grid");
@@ -75,6 +79,7 @@ export default defineComponent({
       'header'
       'search'
       'main'
+      'carrousel'
       'footer';
 }
 .header {
@@ -90,6 +95,11 @@ export default defineComponent({
   grid-area: main;
   margin:0;
 
+}
+.carrousel {
+  grid-area: carrousel;
+  overflow: hidden;
+  margin:0;
 }
 .footer {
   grid-area: footer;
