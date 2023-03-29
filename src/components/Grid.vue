@@ -55,6 +55,20 @@ export default defineComponent({
   }
 }
 @media only screen and (max-width: 500px) {
+  #grid{
+    display: grid;
+    grid-template-columns: auto ;
+    grid-template-rows: 10rem auto;
+    grid-column-gap: 0.5rem;
+    padding: 1rem;
+    grid-template-areas:'aside'
+                        'content';
+  }
+  #grid-aside{
+    opacity: 1;
+
+  }
+
   #grid-content {
     grid-template-columns: 1fr;
   }

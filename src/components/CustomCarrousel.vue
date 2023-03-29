@@ -30,11 +30,14 @@ export default defineComponent({
 
 <style scoped>
 .sliding{
-  border: 1px solid red;
+  border: 1px solid #000000;
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
   position:relative;
+  background-color: rgba(246, 204, 137, 0.91);
+  max-width: 99vw;
+
 }
 
 .scroll {
@@ -44,6 +47,7 @@ export default defineComponent({
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior: contain;
+  max-width: 95vw;
 }
 .scroll > * {
   flex: 0 0 auto;

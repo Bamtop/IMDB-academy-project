@@ -131,4 +131,9 @@ export default defineComponent({
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .fa-filter{
+    display: none;
+  }
+}
 </style>

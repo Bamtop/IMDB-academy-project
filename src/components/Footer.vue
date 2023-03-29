@@ -28,9 +28,9 @@ export default {
   flex-direction: column;
   text-align: center;
   margin-top: 2rem;
-  background-color: #000;
   color: #fff;
   padding: 3rem;
+
 
 
 }

@@ -1,29 +1,30 @@
-
-
 <template>
-  <header class="header">
-    <CustomHeader>
-    </CustomHeader>
-  </header>
+  <div class="search">
+    <SearchInput :openFilter="changeFilter"></SearchInput>
+  </div>
 
-  <main class="main">
-  <RouterView></RouterView>
-  </main>
-  <footer class="footer">
-    <Footer></Footer>
-  </footer>
+    <Grid>
+      <template v-slot:cards>
+        <FilmCard></FilmCard>
+      </template>
+      <template v-slot:aside>
+        <Aside></Aside>
+      </template>
+
+    </Grid>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import CustomHeader from "@/components/CustomHeader.vue";
 import SearchInput from "@/components/SearchInput.vue";
-import FilmCard from "@/components/FilmCard.vue";
 import Grid from "@/components/Grid.vue";
-import Aside from "@/components/Aside.vue";
+import FilmCard from "@/components/FilmCard.vue";
+import CustomCarrousel from "@/components/CustomCarrousel.vue";
+import CustomHeader from "@/components/CustomHeader.vue";
 import Footer from "@/components/Footer.vue";
 import SelectFilter from "@/components/SelectFilter.vue";
-import CustomCarrousel from "@/components/CustomCarrousel.vue";
+import Aside from "@/components/Aside.vue";
+import {defineComponent} from "vue";
+
 
 export default defineComponent({
   components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
@@ -45,29 +46,15 @@ export default defineComponent({
       }
       this.$emit("changeFilter");
     }
-},
+  },
 
 });
 
 </script>
 
 <style >
-.header {
-  grid-area: header;
-  background: skyblue;
-
-}
-
-.main {
-  grid-area: main;
-  margin:0;
-
-}
-
-.footer {
-  grid-area: footer;
- background: black;
-  margin-top:auto;
+.search {
+  grid-area: search;
 
 }
 

@@ -24,5 +24,10 @@ export default defineComponent({
   border-radius: 20px;
   height: 100%;
 }
+@media only screen and (max-width: 500px) {
+  .aside{
+   margin-right: 0;
+  }
+}
 
 </style>
