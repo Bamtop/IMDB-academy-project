@@ -54,13 +54,17 @@ export default defineComponent({
 <style >
 .header {
   grid-area: header;
-  background: skyblue;
-
+  background: #02ec96;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .main {
   grid-area: main;
   margin:0;
+  min-height: 75vh;
 
 }
 

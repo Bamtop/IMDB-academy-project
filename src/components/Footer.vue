@@ -1,14 +1,12 @@
 <template>
 
   <div class="footer__content">
-    <h3>Pablo Benitez - Empathy FrontEnd Fellow</h3>
+    <h3>Pablo Benitez - Empathy FrontEnd Fellow & Marcos Arce - Empathy BackEnd Fellow</h3>
     <a href="https://github.com/Bamtop">
       <i class="fa fa-github" aria-hidden="true"></i>
     </a>
-    <h3>Marcos Arce - Empathy BackEnd Fellow</h3>
-    <p>
-      This is a filmSearch powered by IMDB Database
-    </p>
+
+
 
   </div>
 </template>
@@ -29,7 +27,8 @@ export default {
   text-align: center;
   margin-top: 2rem;
   color: #fff;
-  padding: 3rem;
+  padding: 0;
+  max-height: 10vh;
 
 
 

@@ -1,5 +1,5 @@
 <template>
-
+      <span>Popular Films</span>
       <div class="carrousel">
         <CustomCarrousel></CustomCarrousel>
       </div>
@@ -21,7 +21,21 @@ export default defineComponent ( {
 
 .carrousel {
   overflow: hidden;
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
+}
+
+span{
+  padding-left:2rem ;
+  padding-right: 2rem;
+  margin-left: 1rem;
+  margin-top: 4rem;
+  font-family: Roboto;
+  Font-size: 2.5rem;
+  font-weight: bold;
+  box-shadow: #02ec96 5px 5px 5px 5px;
+  color: #02ec96;
+border-radius: 5px;
+  border: black 1.5px solid;
 }
 </style>

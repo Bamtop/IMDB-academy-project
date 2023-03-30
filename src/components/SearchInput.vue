@@ -80,7 +80,7 @@ export default defineComponent({
 .search-input-control input:focus,
 .search-input-control input:valid {
   outline: 0;
-  border-bottom-color: #2580ef;
+  border-bottom-color: #02ec96;
 }
 
 .search-input-control label span {
@@ -92,7 +92,7 @@ export default defineComponent({
 }
 .search-input-control input:focus + label span,
 .search-input-control input:valid + label span {
-  color:#2580ef ;
+  color:#02ec96 ;
   transform: translateY(-30px);
 }
 .icon-container{
@@ -114,7 +114,7 @@ export default defineComponent({
 
 }
 .fa-filter{
-  color: #2580ef;
+  color: #02ec96;
 }
 .spin {
   animation-name: spin;

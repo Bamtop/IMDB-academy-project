@@ -30,12 +30,11 @@ export default defineComponent({
 
 <style scoped>
 .sliding{
-  border: 1px solid #000000;
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
   position:relative;
-  background-color: rgba(246, 204, 137, 0.91);
+  background-color: transparent;
   max-width: 99vw;
 
 }
@@ -66,8 +65,6 @@ export default defineComponent({
 .item{
   display: flex;
   flex-flow: row nowrap;
-
-
   gap: 50px;
 }
 @-webkit-keyframes carousel {

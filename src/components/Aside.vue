@@ -17,11 +17,14 @@ export default defineComponent({
 
 <style scoped>
 .aside{
+  padding-top: 1rem;
   margin-right: 5rem;
   display: flex;
   flex-direction: column;
-  background: rgba(0, 210, 255, 0.2);
-  border-radius: 20px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #edebe9;;
+
   height: 100%;
 }
 @media only screen and (max-width: 500px) {
