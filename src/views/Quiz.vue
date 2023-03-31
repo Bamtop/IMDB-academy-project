@@ -4,17 +4,39 @@
   <div class="animation">
   </div>
   <div class="quiz_content">
+    <div class="quiz_game">
     <div class="quiz_title">
       <h1>Quiz</h1>
     </div>
-    <div class="quiz_Question">
-      <h2>Question 1</h2>
+
+    <div v-if="currentQuestion===0" class="quiz_Answer">
+      <div class="quiz_Question" v-if="currentQuestion<=2">
+            <h2>Question 1</h2>
+          </div>
+          <RadioSelect option1="option 1" option2="option2" option3="option3" option4="option 4"/>
+        </div>
+        <div v-if="currentQuestion===1" class="quiz_Answer">
+          <div class="quiz_Question">
+            <h2>Question 2</h2>
+          </div>
+          <RadioSelect option1="option 5" option2="option 6" option3="option 7" option4="option 8"/>
+        </div>
+        <div v-if="currentQuestion===2" class="quiz_Answer">
+          <div class="quiz_Question">
+            <h2>Question 3</h2>
+          </div>
+          <RadioSelect option1="option 9" option2="option 10" option3="option 11" option4="option 12"/>
+        </div>
+        <div class="quiz_Button" v-if="currentQuestion <2">
+          <CustomButton nameSelect="next question" class="nextButton" @nextQuestion="nextQuestion"/>
+        </div>
+        <div class="quiz_Button" v-else-if="currentQuestion===2">
+          <CustomButton nameSelect="Finish Quiz" class="finishButton" @nextQuestion="nextQuestion"/>
+        </div>
     </div>
-    <div class="quiz_Answer">
-      <RadioSelect/>
-    </div>
-    <div class="quiz_Button">
-      <CustomButton nameSelect="next question"/>
+    <div class="result_quiz" v-if="currentQuestion===3">
+      <h3>Las 3 peliculas para ti son:</h3>
+      <FilmCard></FilmCard>
     </div>
 
   </div>
@@ -26,10 +48,27 @@
 import {defineComponent} from "vue";
 import RadioSelect from "@/components/RadioSelect.vue";
 import CustomButton from "@/components/CustomButton.vue";
+import FilmCard from "@/components/FilmCard.vue";
 export default defineComponent({
   name: "Quiz",
-  components: {CustomButton, RadioSelect}
-})
+  components: {FilmCard, CustomButton, RadioSelect},
+  data() {
+    return {
+      currentQuestion: 0 as number,
+    }
+
+  },
+  methods: {
+    nextQuestion() {
+      console.log(this.currentQuestion)
+      if (this.currentQuestion <= 2) {
+        this.currentQuestion++;
+      }else{
+        this.currentQuestion=0;}
+    }
+  },
+
+});
 
 
 </script>
@@ -41,6 +80,7 @@ export default defineComponent({
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: 'animation quiz_content';
+  margin: 2rem;
 }
 .animation{
   grid-area: animation;

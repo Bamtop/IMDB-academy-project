@@ -3,25 +3,25 @@
   <div>
     <input type="radio" id="control_01" name="select" value="1" checked>
     <label for="control_01">
-      <h2>Respuesta 1</h2>
+      <h2>{{ option1 }} </h2>
     </label>
   </div>
   <div>
     <input type="radio" id="control_02" name="select" value="2">
     <label for="control_02">
-      <h2>Respuesta 2</h2>
+      <h2>{{option2}}</h2>
     </label>
   </div>
   <div>
     <input type="radio" id="control_03" name="select" value="3">
     <label for="control_03">
-      <h2>Respuesta 3</h2>
+      <h2>{{option3}}</h2>
     </label>
   </div>
   <div>
     <input type="radio" id="control_04" name="select" value="4" >
     <label for="control_04">
-      <h2>Respuesta 4</h2>
+      <h2>{{option4}}</h2>
     </label>
   </div>
   </div>
@@ -29,7 +29,13 @@
 
 <script>
 export default {
-  name: "RadioSelect"
+  name: "RadioSelect",
+  props: {
+    option1: String,
+    option2: String,
+    option3: String,
+    option4: String,
+  },
 }
 </script>
 

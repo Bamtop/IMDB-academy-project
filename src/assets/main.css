@@ -2,7 +2,9 @@
 
 #app {
     margin: 0;
-    padding: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
     font-weight: normal;
     display: grid;
     grid-template-columns: auto;
