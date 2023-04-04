@@ -97,20 +97,6 @@ export default {
   width: 300px;
   border-radius: 3px 3px 0 0;
 }
-
-.card__hover__information{
-  position: absolute;
-  bottom: 80px;
-  height: 120px;
-  padding: 15px 10px;
-  text-align: center;
-  font-size: 17px;
-  color: #000000;
-  transform: rotate(90deg);
-  transform-origin: 0 100px;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
 .card__name{
   position: absolute;
   bottom: 0;

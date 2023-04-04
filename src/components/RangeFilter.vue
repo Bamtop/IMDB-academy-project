@@ -27,6 +27,7 @@ export default defineComponent({
   methods: {
     changeValue(event:Event) {
       this.value = (event.target as HTMLInputElement).value;
+      this.$store.commit('setRangeValue', (event.target as HTMLInputElement).value)
     },
   },
 })
@@ -41,7 +42,7 @@ div {
   justify-content: center;
   align-items: center;
   background: transparent;
-  margin: 2rem 0.5rem 0.5rem 0.5rem;
+  margin: 0.1rem 0.5rem 0.5rem 0.5rem;
 }
 h3{
   margin-top: 1rem;

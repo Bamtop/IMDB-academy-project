@@ -33,7 +33,7 @@ export default defineComponent({
       let filter:HTMLElement|null  = document.getElementById("grid-aside");
       if(this.$store.state.isOpenFilter){
         if (aside !== null && filter !== null){
-          aside.style.gridTemplateColumns="auto 15rem";
+          aside.style.gridTemplateColumns="auto 20rem";
           filter.style.opacity="1";
 
         }
@@ -59,6 +59,8 @@ export default defineComponent({
   position: sticky;
   top: 0;
   z-index: 100;
+  max-width: 100vw;
+  box-shadow: #02ec96 0px 0px 10px 0px;
 }
 
 .main {
@@ -72,6 +74,9 @@ export default defineComponent({
   grid-area: footer;
  background: black;
   margin-top:auto;
+  max-width: 100vw;
+  padding: 2rem 2rem 1rem 1rem;
+
 
 }
 

@@ -3,6 +3,10 @@
       <div class="carrousel">
         <CustomCarrousel></CustomCarrousel>
       </div>
+  <span>Recent Films</span>
+  <div class="carrousel">
+    <CustomCarrousel></CustomCarrousel>
+  </div>
 </template>
 
 <script lang="ts">

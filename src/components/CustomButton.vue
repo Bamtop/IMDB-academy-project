@@ -19,7 +19,7 @@ export default defineComponent( {
     }
   },
   methods: {
-    nextQuestion(event:Event) {
+    nextQuestion() {
       this.$emit('nextQuestion')
     }
   }

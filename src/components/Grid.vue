@@ -1,4 +1,5 @@
 <template>
+  <TransitionGroup name="slide-fade">
 <section class="grid" id="grid">
   <div class="grid-content" id="grid-content">
     <slot name="cards"></slot>
@@ -7,6 +8,7 @@
     <slot name="aside"></slot>
   </div>
 </section>
+  </TransitionGroup>
 </template>
 
 <script lang="ts">
@@ -40,9 +42,11 @@ export default defineComponent({
 }
 #grid-aside{
   grid-area: aside;
+  transition: opacity 0.3s ease-in-out;
   opacity: 0;
 
 }
+
 
 @media only screen and (max-width: 1000px) {
   #grid-content {

@@ -1,6 +1,7 @@
 <template slot="aside">
   <div class="aside">
     <SelectFilter/>
+    <label>Year</label>
     <RangeFilter :min="1999" :max="2023"/>
   </div>
 </template>
@@ -27,6 +28,16 @@ export default defineComponent({
 
   height: 100%;
 }
+
+label{
+  text-align: center;
+  margin-top: 2rem;
+  font-family: Roboto;
+  font-size: 1.4rem;
+  font-weight: bold;
+
+}
+
 @media only screen and (max-width: 500px) {
   .aside{
    margin-right: 0;

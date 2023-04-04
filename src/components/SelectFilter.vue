@@ -1,7 +1,7 @@
 <template>
     <div class="filter">
-      <label >GENRES</label>
-      <select>
+      <label >Genres</label>
+      <select v-on:change="filterSelected">
         <option value="">---</option>
         <option value="a">a</option>
         <option value="v">SSSSSSSSv</option>
@@ -10,9 +10,18 @@
 </template>
 
 <script lang="ts">
-export default {
-name: "SelectFilter"
-}
+import {defineComponent} from "vue";
+export default defineComponent( {
+  name: "SelectFilter",
+
+  methods: {
+    filterSelected(event: Event) {
+      this.$store.commit('setGenre', (event.target as HTMLInputElement).value)
+    },
+  },
+
+})
+
 </script>
 
 <style scoped>
@@ -21,5 +30,10 @@ name: "SelectFilter"
   align-content: center;
   align-items: center;
   flex-direction: column;
+}
+label{
+  font-family: Roboto;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 </style>
