@@ -41,7 +41,7 @@ export default defineComponent({
   border-radius: 5px;
   border: 1px solid #edebe9;;
 
-  height: 100%;
+  height: fit-content;
 }
 
 label{

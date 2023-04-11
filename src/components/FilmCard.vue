@@ -1,17 +1,17 @@
 <template slot="cards">
   <TransitionGroup name="fade">
-<div   class="card" v-for=" film in this.$store.state.films2" :key="film.id">
+<div   class="card" v-for=" film in this.$store.state.films3" :key="film.id">
   <div class="card__image">
-    <img v-bind:src="'https://image.tmdb.org/t/p/w500'+film.poster_path" alt="film image">
+    <img v-bind:src="film.imageUrl" alt="film image">
   </div>
   <div class="card__name">
-    <h3>{{film.title}}</h3>
+    <h3>{{film.primaryTitle}}</h3>
   </div>
     <div class="card__genre">
-      <h4 >{{film.genres_ids}}</h4>
+      <h4 >{{film.geres}}</h4>
     </div>
     <div class="card__score">
-      <h4>{{film.vote_average}}⭐</h4>
+      <h4>{{film.averageRating}}⭐</h4>
     </div>
 </div>
   </TransitionGroup>
@@ -51,7 +51,7 @@ export default {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 45px;
+  height: 70px;
   color: #000000;
   font-size: 20px;
   text-align: center;
@@ -59,6 +59,7 @@ export default {
   border-radius: 0 0 3px 3px;
   transition: all 0.5s ease;
   opacity: 0;
+  overflow: scroll;
 }
 .card__description{
   position:absolute;

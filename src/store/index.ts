@@ -11,65 +11,10 @@ export default createStore({
         startYearFilter: 0 as number,
         ratingFilm: 0 as number,
         duration:0 as number,
-        genre: '' as string,
+        genre:  [] as any,
         genres: [] as any,
         films2: [] as any,
-        films:[
-            {
-                "id": "tt0145487", // Unique result id
-                "tconst": "tt0145487",
-                "titleType": "movie",
-                "primaryTitle": "Spider-Man",
-                "originalTitle": "Spider-Man",
-                "isAdult": false,
-                "startYear": 2002,
-                "endYear": 0,
-                "runtimeMinutes": 121,
-                "genres": [
-                    "Action",
-                    "Adventure",
-                    "Sci-Fi"
-                ],
-                "averageRating": 7.4,
-                "numVotes": 789954,
-                "image":"https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-            },
-            {
-                "id": "tt0145488", // Unique result id
-                "tconst": "tt0145488",
-                "titleType": "movie",
-                "primaryTitle": "Batman",
-                "originalTitle": "Batman",
-                "isAdult": false,
-                "startYear": 2005,
-                "endYear": 0,
-                "runtimeMinutes": 158,
-                "genres": [
-                    "Action",
-                ],
-                "averageRating": 5.4,
-                "numVotes": 9954,
-                "image":"https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-            },
-            {
-                "id": "tt0145489", // Unique result id
-                "tconst": "tt0145489",
-                "titleType": "movie",
-                "primaryTitle": "Iron-Man",
-                "originalTitle": "Iron-Man",
-                "isAdult": false,
-                "startYear": 2010,
-                "endYear": 0,
-                "runtimeMinutes": 200,
-                "genres": [
-                    "Sci-Fi"
-                ],
-                "averageRating": 1.4,
-                "numVotes": 119954,
-                "image":"https://rickandmortyapi.com/api/character/avatar/3.jpeg"
-            }
-
-        ]
+        films3: [] as any,
     },
     mutations: {
         setQuery(state,query: string) {
@@ -105,13 +50,19 @@ export default createStore({
         setFilms(state, films:any) {
             state.films2 = films;
         },
+        setFilms3(state, films:any) {
+            state.films3 = films;
+        },
         setGenres(state, genres:any) {
             state.genres = genres;
         }
     },
     getters: {
         getFilms(state) {
-            return state.films;
+            return state.films2;
+        },
+        getGenres(state) {
+            return state.genres;
         }
     },
     actions: {
@@ -131,8 +82,36 @@ export default createStore({
             fetch(url)
                 .then((data) => data.json())
                 .then((data) => {
-                    commit('setGenres', data.values);
+                    const genres = data.facets[0];
+                    let genresList:any = []
+                    for (let i = 0; i < 27; i++) {
+                        genresList.push(genres.values[i].value)
+                        commit('setGenres', genresList);
+                    }
                 })
+        },
+        fetchFilms2({commit,state}) {
+            let url= "http://localhost:8080/search/term";
+            let query = '?value='+state.currentQuery;
+            let field = '&field=primaryTitle';
+            fetch(url+query+field)
+                .then((data) => data.json())
+                .then((data) => {
+                    let promises = [];
+                    for(let film in data){
+                        let imageUrl = 'https://www.omdbapi.com/?apikey=48eb5195&t='+ data[film].primaryTitle;
+                        let promise = fetch(imageUrl)
+                            .then((result) => result.json())
+                            .then((result) => {
+                                data[film].imageUrl=result.Poster;
+                            });
+                        promises.push(promise);
+                    }
+                    Promise.all(promises).then(() => {
+                        commit('setFilms3', data);
+                        console.log(data);
+                    });
+                });
         },
     },
 });

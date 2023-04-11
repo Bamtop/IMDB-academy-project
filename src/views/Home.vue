@@ -28,6 +28,9 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
+  mounted() {
+
+  },
   methods:{
     changeFilter(){
       let aside:HTMLElement|null  = document.getElementById("grid");

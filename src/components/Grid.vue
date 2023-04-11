@@ -34,8 +34,10 @@ export default defineComponent({
   grid-template-areas: "content aside";
 }
 #grid-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-area: content;
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
   padding: 1rem;

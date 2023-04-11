@@ -3,8 +3,7 @@
       <label >Genres</label>
       <select v-on:change="filterSelected">
         <option value="">---</option>
-        <option value="a">a</option>
-        <option value="v">SSSSSSSSv</option>
+        <option v-for="genre in this.$store.state.genres" :value="genre">{{ genre }}</option>
       </select>
     </div>
 </template>
@@ -18,6 +17,7 @@ export default defineComponent( {
     filterSelected(event: Event) {
       this.$store.commit('setGenre', (event.target as HTMLInputElement).value)
     },
+
   },
 
 })
