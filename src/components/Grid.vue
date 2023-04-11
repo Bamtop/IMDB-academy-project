@@ -62,7 +62,7 @@ export default defineComponent({
   #grid{
     display: grid;
     grid-template-columns: auto ;
-    grid-template-rows: 10rem auto;
+    grid-template-rows: 30rem auto;
     grid-column-gap: 0.5rem;
     padding: 1rem;
     grid-template-areas:'aside'

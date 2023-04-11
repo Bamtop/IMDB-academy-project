@@ -2,7 +2,11 @@
   <div class="aside">
     <SelectFilter/>
     <label>Year</label>
-    <RangeFilter :min="1999" :max="2023"/>
+    <RangeFilter :min="1999" :max="2023" v-on:rangeSelected="setYearRangeFilter"/>
+    <label>Rating</label>
+    <RangeFilter :min="1" :max="10"  emoji=" ⭐" v-on:rangeSelected="setRatingRangeFilter"/>
+    <label>Duration Aprox</label>
+    <RangeFilter :min="60" :max="300" emoji=" min ⌚"  v-on:rangeSelected="setDurationAprox"/>
   </div>
 </template>
 
@@ -12,6 +16,17 @@ import SelectFilter from "@/components/SelectFilter.vue";
 import RangeFilter from "@/components/RangeFilter.vue";
 export default defineComponent({
       components: {RangeFilter, SelectFilter},
+      methods:{
+        setYearRangeFilter(value:number){
+          this.$store.commit('setStartYear', value)
+        },
+        setRatingRangeFilter(value:number){
+          this.$store.commit('setRating',value);
+        },
+        setDurationAprox(value:number){
+          this.$store.commit('setDuration',value);
+        }
+      }
 
     })
 </script>

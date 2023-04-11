@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="range" :min="min" :max="max" :value="value" @input="changeValue"/>
-    <h3>{{this.value}}</h3>
+    <input type="range" :min="min" :max="max" :value="value" :emoji="emoji" @input="changeValue"/>
+    <h3>{{this.value}}{{this.emoji}}</h3>
   </div>
 </template>
 
@@ -17,6 +17,9 @@ export default defineComponent({
     max: {
       type: Number,
       default: 100,
+    },
+    emoji:{
+      type: String
     }
   },
   data() {
@@ -27,7 +30,7 @@ export default defineComponent({
   methods: {
     changeValue(event:Event) {
       this.value = (event.target as HTMLInputElement).value;
-      this.$store.commit('setRangeValue', (event.target as HTMLInputElement).value)
+      this.$emit('rangeSelected', (event.target as HTMLInputElement).value)
     },
   },
 })

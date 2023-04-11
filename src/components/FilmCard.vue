@@ -1,72 +1,22 @@
 <template slot="cards">
-<div   class="card">
+  <TransitionGroup name="fade">
+<div   class="card" v-for=" film in this.$store.state.films2" :key="film.id">
   <div class="card__image">
-    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="film image">
+    <img v-bind:src="'https://image.tmdb.org/t/p/w500'+film.poster_path" alt="film image">
   </div>
   <div class="card__name">
-    <h3>Movie name</h3>
+    <h3>{{film.title}}</h3>
   </div>
-    <div class="card__description">
-      <h4>In this film you can see a SpiderMan help others because he is a good boy</h4>
-    </div>
     <div class="card__genre">
-      <h4>ACTION</h4>
+      <h4 >{{film.genres_ids}}</h4>
     </div>
     <div class="card__score">
-      <h4>4 ⭐</h4>
+      <h4>{{film.vote_average}}⭐</h4>
     </div>
 </div>
-  <div   class="card">
-    <div class="card__image">
-      <img src="https://image.tmdb.org/t/p/w500/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg" alt="film image">
-    </div>
-    <div class="card__name">
-      <h3>Movie name</h3>
-    </div>
-    <div class="card__description">
-      <h4>In this film you can see a SpiderMan help others because he is a good boy</h4>
-    </div>
-    <div class="card__genre">
-      <h4>ACTION</h4>
-    </div>
-    <div class="card__score">
-      <h4>4 ⭐</h4>
-    </div>
-  </div>
-  <div   class="card">
-    <div class="card__image">
-      <img src="https://image.tmdb.org/t/p/w500/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg" alt="film image">
-    </div>
-    <div class="card__name">
-      <h3>Movie name</h3>
-    </div>
-    <div class="card__description">
-      <h4>In this film you can see a SpiderMan help others because he is a good boy</h4>
-    </div>
-    <div class="card__genre">
-      <h4>ACTION</h4>
-    </div>
-    <div class="card__score">
-      <h4>4 ⭐</h4>
-    </div>
-  </div>
-  <div   class="card">
-    <div class="card__image">
-      <img src="https://image.tmdb.org/t/p/w500/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg" alt="film image">
-    </div>
-    <div class="card__name">
-      <h3>Movie name</h3>
-    </div>
-    <div class="card__description">
-      <h4>In this film you can see a SpiderMan help others because he is a good boy</h4>
-    </div>
-    <div class="card__genre">
-      <h4>ACTION</h4>
-    </div>
-    <div class="card__score">
-      <h4>4 ⭐</h4>
-    </div>
-  </div>
+  </TransitionGroup>
+
+
 </template>
 
 <script>
@@ -75,7 +25,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 
 .card{
   display: flex;
@@ -164,6 +114,15 @@ export default {
 .card:hover .card__score {
   opacity: 1;
   transform: rotate(0deg);
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 

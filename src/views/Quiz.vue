@@ -11,21 +11,21 @@
 
     <div v-if="this.$store.state.selectQuestion===0" class="quiz_Answer">
       <div class="quiz_Question" v-if="this.$store.state.selectQuestion===0">
-            <h2>Question 1</h2>
+            <h2>¿Que plan cogerías para hacer en el fin de semana?</h2>
       </div>
-          <RadioSelect option1="option 1" option2="option2" option3="option3" option4="option 4"/>
+          <RadioSelect option1="Ver las estrellas con buena compañia" option2="deporte extremo" option3="Ir a la montaña" option4="Expedicion por pueblo abandonado"/>
     </div>
       <div v-if="this.$store.state.selectQuestion===1" class="quiz_Answer">
           <div class="quiz_Question">
-            <h2>Question 2</h2>
+            <h2>Estas en un vuelo que dura 3 horas, ¿Que harias?</h2>
           </div>
-          <RadioSelect option1="option 5" option2="option 6" option3="option 7" option4="option 8"/>
+          <RadioSelect option1="Leer un libro" option2="Ver una pelicula" option3="Ver un episodio de una serie" option4="Dormir"/>
         </div>
         <div v-if="this.$store.state.selectQuestion===2" class="quiz_Answer">
           <div class="quiz_Question">
-            <h2>Question 3</h2>
+            <h2>Estas de visita en una gran ciudad, ¿que haces?</h2>
           </div>
-          <RadioSelect option1="option 9" option2="option 10" option3="option 11" option4="option 12"/>
+          <RadioSelect option1="Visitar los monumentos iconicos" option2="Exploras sus callejones" option3="A donde me lleve el viento " option4="Me da igual"/>
         </div>
 
     </div>
@@ -72,7 +72,7 @@ export default defineComponent({
   grid-template-rows: auto;
   grid-template-areas: 'animation quiz_content';
   margin: 2rem;
-  min-width: 100vh;
+  min-width: 100vw;
 }
 .animation{
   grid-area: animation;
@@ -134,7 +134,7 @@ export default defineComponent({
   .quiz{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto;
     grid-template-areas:'quiz_content';
     margin: 2rem;
   }
@@ -144,6 +144,9 @@ export default defineComponent({
   .quiz_content{
     grid-area: quiz_content;
     width: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
   }
   .filmCards{

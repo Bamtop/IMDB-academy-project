@@ -36,6 +36,7 @@ export default defineComponent({
   methods: {
     searchInput(event: Event) {
       this.$store.commit('setQuery', (event.target as HTMLInputElement).value);
+      this.$store.dispatch('fetchFilms')
       this.setSpin();
     },
     setSpin() {
