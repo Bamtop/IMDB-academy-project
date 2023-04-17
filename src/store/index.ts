@@ -163,7 +163,7 @@ export default createStore({
                         promises.push(promise);
                     }
                     Promise.all(promises).then(() => {
-                        commit('setFilms3', data);
+                        commit('setFilms3', data.hits);
                     });
                 });
         },
