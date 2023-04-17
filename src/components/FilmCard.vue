@@ -1,17 +1,17 @@
 <template slot="cards">
   <TransitionGroup name="fade">
-<div   class="card" v-for=" film in this.$store.state.films3" :key="film.id">
+<div class="card">
   <div class="card__image">
-    <img v-bind:src="film.imageUrl" alt="film image">
+    <img :src="film?.imageUrl" alt="film image">
   </div>
   <div class="card__name">
-    <h3>{{film.primaryTitle}}</h3>
+    <h3>{{film?.primaryTitle}}</h3>
   </div>
-    <div class="card__genre">
-      <h4 >{{film.geres}}</h4>
+    <div class="card__genre"  :id="film.genres[0]" v-if="film.genres">
+      <h4 >{{film.genres[0]}}</h4>
     </div>
     <div class="card__score">
-      <h4>{{film.averageRating}}⭐</h4>
+      <h4>{{film?.averageRating}}⭐</h4>
     </div>
 </div>
   </TransitionGroup>
@@ -19,10 +19,19 @@
 
 </template>
 
-<script>
-export default {
-  name: "FilmCard"
-}
+<script lang="ts">
+import {defineComponent} from "vue";
+export default defineComponent({
+  name: "FilmCard",
+  props: {
+    film: Object
+  },
+  watch: {
+    film(){
+      console.log(this.film)
+    }
+  },
+})
 </script>
 
 <style lang="scss">
@@ -124,6 +133,35 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+#Action{
+  background: linear-gradient(to bottom, #8b0000, #ff4500);
+
+}
+#Adventure{
+  background: linear-gradient(to bottom, #8b3e00, #ffa500);
+}
+#Animation{
+  background: linear-gradient(to bottom, #006400, #7fff00);
+}
+#Comedy{
+  background: linear-gradient(to bottom, #ffd700, #f0e68c);
+}
+#Drama{
+  background: linear-gradient(to bottom, #00008b, #add8e6);
+}
+#Terror{
+  background: linear-gradient(to bottom, #4b0082, #9370db);
+}
+#SFI{
+  background: linear-gradient(to bottom, #2f4f4f, #c0c0c0);
+}
+#Romance{
+  background: linear-gradient(to bottom, #ff69b4, #ffc0cb);
+}
+#Crime{
+  background: linear-gradient(to bottom, #1c1c1c, #696969);
 }
 
 

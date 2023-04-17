@@ -1,25 +1,25 @@
 <template>
   <div class="radio_select">
   <div>
-    <input type="radio" id="control_01" name="select" value="1" v-model="selectOption">
+    <input type="radio" id="control_01" name="select" :value="value1" v-model="selectOption">
     <label for="control_01">
       <h2>{{ option1 }} </h2>
     </label>
   </div>
   <div>
-    <input type="radio" id="control_02" name="select" value="2" v-model="selectOption">
+    <input type="radio" id="control_02" name="select" :value="value2" v-model="selectOption">
     <label for="control_02">
       <h2>{{option2}}</h2>
     </label>
   </div>
   <div>
-    <input type="radio" id="control_03" name="select" value="3" v-model="selectOption">
+    <input type="radio" id="control_03" name="select" :value="value3" v-model="selectOption">
     <label for="control_03">
       <h2>{{option3}}</h2>
     </label>
   </div>
   <div>
-    <input type="radio" id="control_04" name="select" value="4" v-model="selectOption" >
+    <input type="radio" id="control_04" name="select" :value="value4" v-model="selectOption" >
     <label for="control_04">
       <h2>{{option4}}</h2>
     </label>
@@ -44,6 +44,10 @@ export default defineComponent( {
     option2: String,
     option3: String,
     option4: String,
+    value1: String,
+    value2: String,
+    value3: String,
+    value4: String,
   },
   data(){
     return{
@@ -65,6 +69,8 @@ export default defineComponent( {
         this.$store.commit('setSelectOption3', this.selectOption)
         this.currentQuestion = 3;
         this.$store.commit('setSelectQuestion', this.currentQuestion)
+        this.$store.dispatch('fetchQuizResult')
+
       }
     },
   },
@@ -128,6 +134,9 @@ export default defineComponent( {
 @media only screen and (max-width: 700px) {
   section {
     flex-direction: column;
+  }
+  h2 {
+    font-size: 0.8rem;
   }
 }
 

@@ -13,26 +13,29 @@
       <div class="quiz_Question" v-if="this.$store.state.selectQuestion===0">
             <h2>¿Que plan cogerías para hacer en el fin de semana?</h2>
       </div>
-          <RadioSelect option1="Ver las estrellas con buena compañia" option2="deporte extremo" option3="Ir a la montaña" option4="Expedicion por pueblo abandonado"/>
+          <RadioSelect option1="Ver las estrellas con buena compañia" option2="Tomar algo con amigos" option3="Ir a la montaña" option4="Entrar en un bosque oscuro"
+                       value1 ="Romance" value2="Comedy" value3="Adventure" value4="Horror"/>
     </div>
       <div v-if="this.$store.state.selectQuestion===1" class="quiz_Answer">
           <div class="quiz_Question">
             <h2>Estas en un vuelo que dura 3 horas, ¿Que harias?</h2>
           </div>
-          <RadioSelect option1="Leer un libro" option2="Ver una pelicula" option3="Ver un episodio de una serie" option4="Dormir"/>
+          <RadioSelect option1="Leer un libro" option2="Ver una pelicula" option3="Ver un episodio de una serie" option4="Ver un amime"
+                       value1 ="350" value2="120" value3="90" value4="60"/>
         </div>
         <div v-if="this.$store.state.selectQuestion===2" class="quiz_Answer">
           <div class="quiz_Question">
             <h2>Estas de visita en una gran ciudad, ¿que haces?</h2>
           </div>
-          <RadioSelect option1="Visitar los monumentos iconicos" option2="Exploras sus callejones" option3="A donde me lleve el viento " option4="Me da igual"/>
+          <RadioSelect option1="Visitar los monumentos iconicos" option2="Exploras sus callejones" option3="A donde me lleve el viento " option4="Me da igual"
+                       value1 ="8" value2="7" value3="4" value4="1"/>
         </div>
 
     </div>
     <div class="result_quiz" v-if="this.$store.state.selectQuestion===3">
       <h3>Las 3 peliculas para ti son:</h3>
       <div class="filmCards">
-      <FilmCard class="filmCards"></FilmCard>
+        <FilmCard v-for="film in films" :film="film"></FilmCard>
       </div>
     </div>
 
@@ -49,14 +52,12 @@ import FilmCard from "@/components/FilmCard.vue";
 export default defineComponent({
   name: "Quiz",
   components: {FilmCard, CustomButton, RadioSelect},
-  data() {
-    return {
+  computed:{
+    films() {
+      return this.$store.state.quizResult;
     }
-
   },
-  methods: {
 
-  },
 
 
 });
@@ -131,6 +132,7 @@ export default defineComponent({
 }
 
 @media only screen and (max-width: 550px) {
+
   .quiz{
     display: grid;
     grid-template-columns: auto;
@@ -138,6 +140,7 @@ export default defineComponent({
     grid-template-areas:'quiz_content';
     margin: 2rem;
   }
+
   .animation{
     display: none;
   }
@@ -145,8 +148,17 @@ export default defineComponent({
     grid-area: quiz_content;
     width: 18rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .quiz_title{
+      font-size: 0.7rem;
+    }
+    .quiz_Question{
+      font-size: 1rem;
+    }
+
 
   }
   .filmCards{
@@ -155,6 +167,7 @@ export default defineComponent({
     justify-content: center;
     margin-top: 2rem;
     gap: 2rem;
+    max-width: 80%;
   }
 
 }

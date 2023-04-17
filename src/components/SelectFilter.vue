@@ -16,6 +16,9 @@ export default defineComponent( {
   methods: {
     filterSelected(event: Event) {
       this.$store.commit('setGenre', (event.target as HTMLInputElement).value)
+      setTimeout(() => {
+        this.$store.dispatch('fetchFilterDiscover')
+      }, 300);
     },
 
   },

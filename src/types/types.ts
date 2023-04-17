@@ -8,7 +8,8 @@ export interface Film{
     "startYear": number,
     "endYear": number,
     "runtimeMinutes": number,
-    "genres": [],
+    "genres": string[],
     "averageRating": number,
     "numVotes": number,
+    imageUrl:string
 }

@@ -1,12 +1,12 @@
 <template>
       <span>Popular Films</span>
       <div class="carrousel">
-        <CustomCarrousel></CustomCarrousel>
+        <CustomCarrousel :films="popularFilms"></CustomCarrousel>
       </div>
-  <span>Recent Films</span>
-  <div class="carrousel">
-    <CustomCarrousel></CustomCarrousel>
-  </div>
+      <span>Recent Films</span>
+      <div class="carrousel">
+        <CustomCarrousel :films="recentFilms"></CustomCarrousel>
+      </div>
 </template>
 
 <script lang="ts">
@@ -16,7 +16,15 @@ import Footer from "@/components/Footer.vue";
 import CustomCarrousel from "@/components/CustomCarrousel.vue";
 export default defineComponent ( {
   name: "Trending",
-  components: {CustomCarrousel, CustomHeader,Footer}
+  components: {CustomCarrousel, CustomHeader,Footer},
+  computed:{
+    popularFilms() {
+      return this.$store.state.trendingResult;
+    },
+    recentFilms() {
+      return this.$store.state.recentResult;
+    }
+  },
 })
 </script>
 

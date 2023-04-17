@@ -31,6 +31,9 @@ export default defineComponent({
     changeValue(event:Event) {
       this.value = (event.target as HTMLInputElement).value;
       this.$emit('rangeSelected', (event.target as HTMLInputElement).value)
+      setTimeout(() => {
+        this.$store.dispatch('fetchFilterDiscover')
+      }, 300);
     },
   },
 })

@@ -4,10 +4,10 @@
   </div>
 
     <Grid>
-      <template v-slot:cards>
-        <FilmCard></FilmCard>
+      <template #cards="{film}">
+        <FilmCard :film="film"></FilmCard>
       </template>
-      <template v-slot:aside>
+      <template #aside>
         <Aside></Aside>
       </template>
 
@@ -29,6 +29,8 @@ import {defineComponent} from "vue";
 export default defineComponent({
   components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
   mounted() {
+    this.$store.dispatch('fetchGenres')
+
 
   },
   methods:{

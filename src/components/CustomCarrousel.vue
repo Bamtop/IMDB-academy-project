@@ -3,8 +3,7 @@
     <div class="scroll">
       <div class="item-list" id="item-list">
         <div class="item">
-          <FilmCard></FilmCard>
-          <FilmCard></FilmCard>
+          <FilmCard v-for="film in films.hits" :film="film" ></FilmCard>
         </div>
 
       </div>
@@ -25,6 +24,12 @@ import Footer from "@/components/Footer.vue";
 export default defineComponent({
   components: {FilmCard},
   name: "CustomCarrousel",
+  props: {
+    films: {
+      type: Array,
+      required: true
+    }
+  },
 })
 </script>
 
@@ -55,7 +60,7 @@ export default defineComponent({
   display: flex;
   flex-flow: row nowrap;
   gap: 50px;
-  animation: carousel 30s infinite  forwards;
+  animation: carousel 60s infinite  linear;
 }
 
 #item-list:hover{

@@ -27,6 +27,10 @@ import CustomCarrousel from "@/components/CustomCarrousel.vue";
 
 export default defineComponent({
   components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
+  created() {
+    this.$store.dispatch('fetchPopularFilms');
+    this.$store.dispatch('fetchRecentFilm');
+  },
   methods:{
     changeFilter(){
       let aside:HTMLElement|null  = document.getElementById("grid");

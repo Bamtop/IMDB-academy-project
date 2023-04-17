@@ -36,8 +36,9 @@ export default defineComponent({
   methods: {
     searchInput(event: Event) {
       this.$store.commit('setQuery', (event.target as HTMLInputElement).value);
-      this.$store.dispatch('fetchGenres')
-      this.$store.dispatch('fetchFilms2')
+      setTimeout(() => {
+        this.$store.dispatch('fetchFilms2')
+      }, 300);
       this.setSpin();
     },
     setSpin() {

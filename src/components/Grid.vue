@@ -1,14 +1,12 @@
 <template>
-  <TransitionGroup name="slide-fade">
 <section class="grid" id="grid">
   <div class="grid-content" id="grid-content">
-    <slot name="cards"></slot>
+    <slot name="cards" v-for="film in films" :film="film"></slot>
   </div>
   <div class="grid-aside" id="grid-aside">
     <slot name="aside"></slot>
   </div>
 </section>
-  </TransitionGroup>
 </template>
 
 <script lang="ts">
@@ -17,9 +15,11 @@ import Aside from "@/components/Aside.vue";
 
 export default defineComponent({
   components: {Aside},
-  methods:{
-
-  },
+  computed:{
+    films() {
+      return this.$store.state.films3;
+    }
+  }
 })
 
 </script>
