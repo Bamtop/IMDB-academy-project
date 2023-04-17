@@ -1,24 +1,25 @@
 import {createStore} from 'vuex'
-import type {Film} from "@/types/types";
+import type {Film, RootState,Data} from "@/types/types";
 import {randomNumber} from "@/store/utils";
-export default createStore({
+import Vuex from 'vuex';
+export const store= new Vuex.Store<RootState>( {
     state: {
-        currentQuery: '' as string,
-        isOpenFilter: false as boolean,
-        selectQuestion: 0 as number,
-        selectOption1: '' as string,
-        selectOption2: '' as string,
-        selectOption3: '' as string,
-        startYearFilter: 0 as number,
-        ratingFilm: 0 as number,
-        duration:0 as number,
-        genre:  [] as any,
-        genres: [] as any,
-        films2: [] as any,
-        films3: [] as any,
-        quizResult: [] as any,
-        trendingResult: [] as any,
-        recentResult: [] as any,
+        currentQuery: '' ,
+        isOpenFilter: false,
+        selectQuestion: 0 ,
+        selectOption1: '' ,
+        selectOption2: '' ,
+        selectOption3: '' ,
+        startYearFilter: 0,
+        ratingFilm: 0 ,
+        duration:0 ,
+        genre:  '',
+        genres: [] ,
+        films2: [],
+        films3: [] ,
+        quizResult: [],
+        trendingResult: [],
+        recentResult: [] ,
     },
     mutations: {
         setQuery(state,query: string) {
@@ -54,20 +55,20 @@ export default createStore({
         setFilms(state, films:any) {
             state.films2 = films;
         },
-        setFilms3(state, films:any) {
+        setFilms3(state, films:Film[]) {
             state.films3 = films;
         },
-        setGenres(state, genres:any) {
+        setGenres(state, genres:string[]) {
             state.genres = genres;
         },
 
-        setQuizResult(state, quizResult:any) {
+        setQuizResult(state, quizResult:Film[]) {
             state.quizResult = quizResult;
         },
-        setTrendingResult(state, trendingResult:any) {
+        setTrendingResult(state, trendingResult:Data[]) {
             state.trendingResult = trendingResult;
         },
-        setRecentResult(state, recentResult:any) {
+        setRecentResult(state, recentResult:Data[]) {
             state.recentResult = recentResult;
         },
     },
@@ -123,10 +124,10 @@ export default createStore({
                             .then((result) => result.json())
                             .then((result) => {
                                 if (result.Poster!=="N/A" && result.Poster!==undefined){
-                                data[film].imageUrl=result.Poster;
-                            }else{
-                                data[film].imageUrl='https://via.placeholder.com/300x300.png?text=Imagen+no+disponible';
-                            }
+                                    data[film].imageUrl=result.Poster;
+                                }else{
+                                    data[film].imageUrl='https://via.placeholder.com/300x300.png?text=Imagen+no+disponible';
+                                }
                             });
                         promises.push(promise);
                     }

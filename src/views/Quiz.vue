@@ -2,6 +2,7 @@
 <div class="quiz">
 
   <div class="animation">
+    <wall-e></wall-e>
   </div>
   <div class="quiz_content">
     <div class="quiz_game">
@@ -49,9 +50,10 @@ import {defineComponent} from "vue";
 import RadioSelect from "@/components/RadioSelect.vue";
 import CustomButton from "@/components/CustomButton.vue";
 import FilmCard from "@/components/FilmCard.vue";
+import WallE from "@/components/Wall-e.vue";
 export default defineComponent({
   name: "Quiz",
-  components: {FilmCard, CustomButton, RadioSelect},
+  components: {WallE, FilmCard, CustomButton, RadioSelect},
   computed:{
     films() {
       return this.$store.state.quizResult;
@@ -71,14 +73,13 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 'animation quiz_content';
+  grid-template-areas: 'quiz_content animation ';
   margin: 2rem;
   min-width: 100vw;
 }
 .animation{
   grid-area: animation;
   min-height: 77vh;
-  background-image:url("src/assets/images/harry-potter-gif.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

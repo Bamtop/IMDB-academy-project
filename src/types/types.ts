@@ -13,3 +13,26 @@ export interface Film{
     "numVotes": number,
     imageUrl:string
 }
+export interface Data{
+    "facets": [],
+    "hits": Film[],
+}
+
+export interface RootState{
+    currentQuery: string,
+    isOpenFilter: boolean,
+    selectQuestion:number,
+    selectOption1: string,
+    selectOption2: string,
+    selectOption3: string,
+    startYearFilter: number,
+    ratingFilm: number,
+    duration: number,
+    genre:  string,
+    genres: string[],
+    films2: any[],
+    films3: Film[],
+    quizResult: Film[],
+    trendingResult: Data[],
+    recentResult: Data[],
+}

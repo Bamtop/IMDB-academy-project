@@ -26,11 +26,7 @@ export default defineComponent({
   props: {
     film: Object
   },
-  watch: {
-    film(){
-      console.log(this.film)
-    }
-  },
+
 })
 </script>
 

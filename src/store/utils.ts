@@ -4,3 +4,4 @@ export function randomNumber(min: number, max: number) {
     let randomNumber3 = Math.floor(Math.random() * (max - min + 1)) + min;
     return [randomNumber1, randomNumber2, randomNumber3];
 }
+
