@@ -5,3 +5,6 @@ export function randomNumber(min: number, max: number) {
     return [randomNumber1, randomNumber2, randomNumber3];
 }
 
+export function getDataTestSelector(dataTest: string):string{
+    return `[data-test="${dataTest}"]`;
+}

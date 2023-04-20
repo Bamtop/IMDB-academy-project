@@ -6,7 +6,7 @@
     padding-left: 1rem;
     padding-top: 1rem;
     font-weight: normal;
-    background: #F4FFE7;
+    background: var(--primary-color-background);
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;

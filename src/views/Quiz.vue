@@ -92,7 +92,7 @@ export default defineComponent({
   margin:2rem;
   border-radius: 3rem;
   border: black solid 3px;
-  box-shadow: #02ec96 5px 5px 5px 10px;
+  box-shadow: var(--primary-color) 5px 5px 5px 10px;
   padding: 2rem;
   max-width: 100vh;
 
@@ -100,11 +100,13 @@ export default defineComponent({
           text-align: center;
           font-family: Roboto;
           font-size: 1.5rem;
+          color: var(--text);
         }
         .quiz_Question{
           text-align: left;
           font-family: Roboto;
           font-size: 1.5rem;
+          color: var(--text);
         }
         .quiz_Button{
           margin-top: 3rem;

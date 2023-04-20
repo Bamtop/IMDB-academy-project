@@ -117,6 +117,13 @@ export default defineComponent( {
     box-shadow: 0 10px 10px 0 hsla(150, 5%, 65%, 0.5);
     position: relative;
   }
+  input[type="radio"]:hover + label {
+    background: hsla(150, 75%, 50%, 1);
+    color: hsla(215, 0%, 100%, 1);
+    box-shadow: 0px 0px 20px hsla(150, 100%, 50%, 0.75);
+    transition: linear 0.5s;
+
+  }
 
   input[type="radio"]:checked + label {
     background: hsla(150, 75%, 50%, 1);
@@ -124,6 +131,7 @@ export default defineComponent( {
     box-shadow: 0px 0px 20px hsla(150, 100%, 50%, 0.75);
 
   }
+
 
   input[type="radio"]#control_05:checked + label {
     background: red;

@@ -3,6 +3,7 @@
 <template>
   <header class="header">
     <CustomHeader>
+      <DarkModeSwitch @switched="onSwitched" :initialState="isDarkModeEnabled"></DarkModeSwitch>
     </CustomHeader>
   </header>
 
@@ -24,14 +25,33 @@ import Aside from "@/components/Aside.vue";
 import Footer from "@/components/Footer.vue";
 import SelectFilter from "@/components/SelectFilter.vue";
 import CustomCarrousel from "@/components/CustomCarrousel.vue";
+import DarkModeSwitch from '@/components/DarkModeSwitch.vue'
+import 'vue-dark-mode-switch/dist/vue-dark-mode-switch.css'
 
 export default defineComponent({
-  components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer},
+  components: {CustomCarrousel, SelectFilter, Aside, FilmCard, SearchInput, CustomHeader, Grid,Footer,DarkModeSwitch},
   created() {
     this.$store.dispatch('fetchPopularFilms');
     this.$store.dispatch('fetchRecentFilm');
   },
+  data() {
+    return {
+      isDarkModeEnabled: false
+    }
+  },
   methods:{
+    onSwitched(isDarkModeEnabled: boolean) {
+      const root:HTMLElement|null  = document.querySelector(":root");
+      if(isDarkModeEnabled && root !== null){
+        root.style.setProperty('--primary-color-background', '#544845');
+        root.style.setProperty('--primary-color-text', '#F9F4F3');
+      }else{
+        root.style.setProperty('--primary-color-background', '#F4FFE7');
+        root.style.setProperty('--primary-color-text', 'black');
+      }
+
+    },
+
     changeFilter(){
       let aside:HTMLElement|null  = document.getElementById("grid");
       let filter:HTMLElement|null  = document.getElementById("grid-aside");
@@ -55,16 +75,16 @@ export default defineComponent({
 
 </script>
 
-<style >
+<style lang="scss">
 .header {
   grid-area: header;
-  background: #02ec96;
+  background: var(--primary-color);
   margin-bottom: 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
   max-width: 100vw;
-  box-shadow: #02ec96 0px 0px 10px 0px;
+  box-shadow: var(--primary-color) 0px 0px 10px 0px;
 }
 
 .main {

@@ -1,8 +1,8 @@
 <template>
     <div class="filter">
-      <label >Genres</label>
+      <label data-test="selectFilter_label" >Genres</label>
       <select v-on:change="filterSelected">
-        <option value="">---</option>
+        <option data-test="selectFilter_defaultValue" value="">---</option>
         <option v-for="genre in this.$store.state.genres" :value="genre">{{ genre }}</option>
       </select>
     </div>

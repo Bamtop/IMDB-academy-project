@@ -25,6 +25,9 @@
           <img class="quiz-icon" src="../assets/images/quiz.png" alt="quiz">
         </RouterLink>
       </div>
+      <div class="dark-mode">
+        <slot></slot>
+      </div>
     </div>
   </div>
 

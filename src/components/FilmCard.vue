@@ -36,6 +36,9 @@ export default defineComponent({
   display: flex;
   width: 300px;
   height: 300px;
+  border: black double 2px;
+  border-radius: 3px;
+  box-shadow: var(--primary-color) 0 0 10px;
 }
 .card__image{
   position: relative;
@@ -57,7 +60,7 @@ export default defineComponent({
   bottom: 0;
   width: 100%;
   height: 70px;
-  color: #000000;
+  color: var(--text);
   font-size: 20px;
   text-align: center;
   background: transparent;
