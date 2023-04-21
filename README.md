@@ -12,7 +12,9 @@ The app contains the following functionalities:
 
 
 
-Home View
+Home View.
+
+![Home View](https://media.giphy.com/media/Fxu7FWJsPsmCdlLIFb/giphy.gif)
 
 ## Customize configuration
 
