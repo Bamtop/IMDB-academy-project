@@ -141,7 +141,7 @@ export default defineComponent({
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas:'quiz_content';
-    margin: 2rem;
+    margin: 0;
   }
 
   .animation{

@@ -45,6 +45,7 @@ export default defineComponent({
 <style lang="scss">
 .header_content {
   display: flex;
+  max-width: 100vw;
   justify-content: space-between;
 
   h3{

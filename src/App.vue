@@ -91,6 +91,7 @@ export default defineComponent({
   grid-area: main;
   margin:0;
   min-height: 75vh;
+  max-width: 95vw;
 
 }
 
