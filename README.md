@@ -20,10 +20,13 @@ The app contains the following functionalities:
 ![Filters](https://media.giphy.com/media/1GCaqRso7fl3cOQmGx/giphy.gif)
 
 ## Carousel
+![Carousel](https://media.giphy.com/media/XvqiJX1BZqhvNvVy0u/giphy.gif)
 
 ## Quizz
+![Quizz](https://media.giphy.com/media/c18Wlf8hYp6RgMNJHa/giphy.gif)
 
-#Dark Mode
+## Dark Mode
+![DarkMode](https://media.giphy.com/media/3siWKq27MmBznz1vgx/giphy.gif)
 
 
 ## Customize configuration
