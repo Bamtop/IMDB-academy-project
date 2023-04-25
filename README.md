@@ -12,9 +12,19 @@ The app contains the following functionalities:
 
 
 
-Home View.
+## Home View.
 
 ![Home View](https://media.giphy.com/media/Fxu7FWJsPsmCdlLIFb/giphy.gif)
+
+## Search Filters
+![Filters](https://media.giphy.com/media/1GCaqRso7fl3cOQmGx/giphy.gif)
+
+## Carousel
+
+## Quizz
+
+#Dark Mode
+
 
 ## Customize configuration
 
